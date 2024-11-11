@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,45 +12,89 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Hello Flutter',
-            style: TextStyle(fontSize: 28),
-          ),
-          centerTitle: true,
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(CupertinoIcons.camera, color: Colors.black),
+          onPressed: () {},
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(32),
-                  child: Image.network(
-                    "https://i.ibb.co/CwzHq4z/trans-logo-512.png",
-                    width: 81,
-                  ),
+        actions: [
+          IconButton(
+            icon: Icon(CupertinoIcons.paperplane, color: Colors.black),
+            onPressed: () {},
+          )
+        ],
+        backgroundColor: Colors.white,
+      ),
+      body: Column(
+        children: [
+          Image.network(
+            "https://i.ibb.co/YjjLCS7/cat.png",
+            height: 400,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+          Row(
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  CupertinoIcons.heart,
+                  color: Colors.black,
                 ),
-                TextField(
-                  decoration: InputDecoration(labelText: '이메일'),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  CupertinoIcons.chat_bubble,
+                  color: Colors.black,
                 ),
-                TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(labelText: '비밀번호'),
+              ),
+              Spacer(), // 빈 공간 추가
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  CupertinoIcons.bookmark,
+                  color: Colors.black,
                 ),
-                Container(
-                  width: double.infinity,
-                  margin: const EdgeInsets.only(top: 16),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text('로그인'),
-                  ),
-                ),
-              ],
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "2 likes",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-        ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "My cat is docile even when bathed. I put a duck on his head in the wick and he's staring at me. Isn't it so cute??",
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "FEBURARY 6",
+              style: TextStyle(
+                color: Colors.grey,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
