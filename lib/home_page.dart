@@ -22,7 +22,12 @@ class HomePage extends StatelessWidget {
         ],
         backgroundColor: Colors.white,
       ),
-      body: Feed(),
+      body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return Feed();
+        },
+      ),
     );
   }
 }
